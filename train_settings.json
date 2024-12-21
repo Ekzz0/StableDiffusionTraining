@@ -1,0 +1,14 @@
+{
+    "batch_size": 6,
+    "num_workers": 0,
+    "shuffle": true,
+    "max_tokenize_length": 77,
+    "image_resize": 512,
+    "model_name": "stabilityai/stable-diffusion-2-1-base",
+    "num_epochs": 300,
+    "log_interval": 5,
+    "weight_decay": 1e-3,
+    "learning_rate": 1e-4, 
+    "lr_warmup_steps": 200, 
+    "lr_scheduler": "cosine"
+}
