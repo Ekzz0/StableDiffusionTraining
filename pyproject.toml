@@ -1,0 +1,94 @@
+# MYPY CONFIG
+[tool.mypy]
+ignore_missing_imports = true
+exclude = [
+    "^.git/",
+    "^__pycache__/",
+    "^venv/",
+    "^models/",
+    "^data/",
+    "^notebooks/",
+    "^config/",
+    "^mlflow/",
+    "^.dvc/"
+]
+[[tool.mypy.overrides]]
+module = "tqdm"
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = "selenium"
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = "catboost"
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = "pymorphy2"
+ignore_errors = true
+
+# RUFF CONFIG
+[tool.ruff]  # RUFF CONFIG:
+line-length = 120
+
+[tool.ruff.lint]
+ignore = ["F841", "E722"]
+
+# PYLINT CONFIG
+[tool.pylint."MESSAGES CONTROL"]  # PYLINT CONFIG:
+disable = [
+    "C0114",  # missing module docstring
+    "C0103",  # Constant name doesn't conform to UPPER_CASE naming style
+    "W0612",  # Unused import
+    "W0613",  # Unused argument
+    "R0801",  # simillar 2 lines
+    "R0903",  # Too few public methods (1/2)
+    "W0603",  # Using the global statement
+    "W0511",  # TODO
+    "R0402",  # consider-using-from-import
+    "R0917",  # Too many positional arguments
+]
+
+[tool.pylint.FORMAT]
+max-line-length = 120
+
+[tool.pylint.BASIC]
+max-args = 8
+max-attributes = 15
+good-names = ["i", "j", "k", "ex", "Run", "_"]
+bad-names = ["foo", "bar", "baz", "toto", "tutu", "tata", "bebra", "lebra", "aboba"]
+
+[tool.pylint.MISCELLANEOUS]
+notes = ["FIXME", "XXX", "TODO"]
+
+[tool.pylint.SIMILARITIES]
+min-similarity-lines = 4
+ignore-comments = true
+ignore-docstrings = true
+ignore-imports = false
+
+# FLAKE 8 CONFIG:
+[tool.flake8]
+exclude = [
+    ".git",
+    "__pycache__",
+    "venv",
+    "__init__.py",
+    "models",
+    "data",
+    "notebooks",
+    "config",
+    "mlflow",
+    ".dvc"
+]
+max-line-length = 120
+ignore = [
+    "E203",
+    "F401",
+    "F541",
+    "F841",
+    "E722",
+    "E241",
+    "W503"
+]
